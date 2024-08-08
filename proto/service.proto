@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package health_check;
+option go_package = "grpc/proto";
+
+message Request {
+  uint32 id = 1;
+}
+
+message Response {
+  string message = 2;
+  uint32 id = 1;
+
+}
+
+service Test {
+  rpc HealthCheck(Request) returns (Response);
+  rpc ServerStream(Request) returns (stream Response);
+  rpc ClientStream(stream Request) returns (Response);
+  rpc BiDirectional(stream Request) returns (stream Response);
+}

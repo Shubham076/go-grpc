@@ -1,0 +1,4 @@
+protoc  --go_out=. --go_opt=module=grpc  --go_grpc_out=. --go_grpc_opt=module=grpc  --plugin=protoc-gen-go_grpc=/Users/shubham.dogra/go/bin/protoc-gen-go-grpc proto/*.proto
+
+ grpcurl -plaintext -d '{"id":10}' localhost:50051 health_check.Service/ClientStream
+
